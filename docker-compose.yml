@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    ports:
+        - 80:80
+    depends_on:
+        - master
+  master:
+    build:
+      context: .
+      dockerfile: Dockerfile
+  weather:
+    build:
+      context: .
+      dockerfile: Dockerfile.weather
+  news:
+    build:
+      context: .
+      dockerfile: Dockerfile.news
